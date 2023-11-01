@@ -20,23 +20,23 @@
         }
 
         /* Estilos para el visor de imágenes */
-        #image-viewer {
+        .image-viewer {
             text-align: center;
         }
 
-        #image-viewer img {
+        .image-viewer img {
             max-width: 100%;
             height: auto;
             border: 2px solid #333;
             border-radius: 8px;
         }
 
-        #image-buttons {
+        .image-buttons {
             margin-top: 10px;
             text-align: center;
         }
 
-        #prev-button, #next-button {
+        .prev-button, .next-button {
             background-color: #333;
             color: #fff;
             border: none;
@@ -45,7 +45,7 @@
             cursor: pointer;
         }
 
-        #prev-button:hover, #next-button:hover {
+        .prev-button:hover, .next-button:hover {
             background-color: #555;
         }
 
@@ -56,7 +56,7 @@
                 padding: 10px;
             }
 
-            #image-viewer img {
+            .image-viewer img {
                 border: 1px solid #333;
                 border-radius: 4px;
             }
@@ -66,49 +66,100 @@
 <body>
     <h1 style="text-align: center; margin: 10px 0;">Elegí con cabeza 🦁</h1>
     <div class="overlay">
-        <div id="image-viewer">
-            <img id="image" src="imagen1.jpg" alt="Imagen 1">
+        <div class="image-viewer">
+            <img id="image1" src="https://i.ibb.co/hVp3NqH/Whats-App-Image-2023-11-01-at-00-20-52.jpg" alt="Imagen 1">
         </div>
 
-        <div id="image-buttons">
-            <button id="prev-button">Anterior</button>
-            <button id="next-button">Siguiente</button>
+        <div class="image-buttons">
+            <button class="prev-button">Anterior</button>
+            <button class="next-button">Siguiente</button>
+        </div>
+    </div>
+
+    <!-- Agrega un video de YouTube debajo de las imágenes y los botones -->
+    <iframe width="100%" height="315" src="https://www.veed.io/view/ca82617f-2f61-45a1-a6a2-24b2dca616f1?sharingWidget=true&panel=share" frameborder="0" allowfullscreen></iframe>
+
+    <h2 style="text-align: center; margin: 10px 0;">El pueblo no olvida, vota con cabeza 🦁 </h2>
+    <div class="overlay">
+        <div class="image-viewer">
+            <img id="image2" src="https://i.ibb.co/YcS7jns/Whats-App-Image-2023-11-01-at-15-10-05.jpg" alt="Imagen 1">
         </div>
 
-        <!-- Agrega un video de YouTube debajo de las imágenes y los botones -->
-        <iframe width="100%" height="315" src="https://www.veed.io/view/ca82617f-2f61-45a1-a6a2-24b2dca616f1?sharingWidget=true&panel=share" frameborder="0" allowfullscreen></iframe>
+        <div class="image-buttons">
+            <button class="prev-button">Anterior</button>
+            <button class="next-button">Siguiente</button>
+        </div>
     </div>
 
     <script>
-        // Array de rutas de imágenes
-        const images = [
+        // Array de rutas de imágenes para el primer conjunto
+        const images1 = [
             "https://i.ibb.co/hVp3NqH/Whats-App-Image-2023-11-01-at-00-20-52.jpg",
             "https://i.ibb.co/ZzTx6tt/Whats-App-Image-2023-11-01-at-00-20-51-1.jpg",
             "https://i.ibb.co/g6MkP28/Whats-App-Image-2023-11-01-at-00-20-51.jpg"
         ];
 
-        let currentIndex = 0;
+        let currentIndex1 = 0;
 
-        const imageElement = document.getElementById('image');
-        const prevButton = document.getElementById('prev-button');
-        const nextButton = document.getElementById('next-button');
+        const imageElement1 = document.getElementById('image1');
+        const prevButton1 = document.querySelectorAll('.prev-button')[0];
+        const nextButton1 = document.querySelectorAll('.next-button')[0];
 
-        function showImage(index) {
-            imageElement.src = images[index];
+        function showImage1(index) {
+            imageElement1.src = images1[index];
         }
 
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            showImage(currentIndex);
+        prevButton1.addEventListener('click', () => {
+            currentIndex1 = (currentIndex1 - 1 + images1.length) % images1.length;
+            showImage1(currentIndex1);
         });
 
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            showImage(currentIndex);
+        nextButton1.addEventListener('click', () => {
+            currentIndex1 = (currentIndex1 + 1) % images1.length;
+            showImage1(currentIndex1);
         });
 
-        // Mostrar la primera imagen al cargar la página
-        showImage(currentIndex);
+        // Mostrar la primera imagen del primer conjunto al cargar la página
+        showImage1(currentIndex1);
+
+        // Array de rutas de imágenes para el segundo conjunto
+        const images2 = [
+            "https://i.ibb.co/YcS7jns/Whats-App-Image-2023-11-01-at-15-10-05.jpg",
+            "https://i.ibb.co/mRxNMvD/Whats-App-Image-2023-11-01-at-15-10-05-1.jpg",
+            "https://i.ibb.co/G9gTf17/Whats-App-Image-2023-11-01-at-15-10-05-2.jpg",
+            "https://i.ibb.co/wK69vwQ/Whats-App-Image-2023-11-01-at-15-10-05-3.jpg",
+            "https://i.ibb.co/StWYZ1P/Whats-App-Image-2023-11-01-at-15-10-04.jpg",
+            "https://i.ibb.co/DrnzWqn/Whats-App-Image-2023-11-01-at-15-10-00.jpg",
+            "https://i.ibb.co/D4CkskP/Whats-App-Image-2023-11-01-at-15-10-01.jpg",
+            "https://i.ibb.co/MkMfp0V/Whats-App-Image-2023-11-01-at-15-10-02-2.jpg",
+            "https://i.ibb.co/3v25qVH/Whats-App-Image-2023-11-01-at-15-10-02-1.jpg",
+            "https://i.ibb.co/hY3brpx/Whats-App-Image-2023-11-01-at-15-10-03-2.jpg",
+            "https://i.ibb.co/0G7q4Wz/Whats-App-Image-2023-11-01-at-15-10-02.jpg",
+            "https://i.ibb.co/0CC4bPt/Whats-App-Image-2023-11-01-at-15-10-04-1.jpg"
+        ];
+
+        let currentIndex2 = 0;
+
+        const imageElement2 = document.getElementById('image2');
+        const prevButton2 = document.querySelectorAll('.prev-button')[1];
+        const nextButton2 = document.querySelectorAll('.next-button')[1];
+
+        function showImage2(index) {
+            imageElement2.src = images2[index];
+        }
+
+        prevButton2.addEventListener('click', () => {
+            currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
+            showImage2(currentIndex2);
+        });
+
+        nextButton2.addEventListener('click', () => {
+            currentIndex2 = (currentIndex2 + 1) % images2.length;
+            showImage2(currentIndex2);
+        });
+
+        // Mostrar la primera imagen del segundo conjunto al cargar la página
+        showImage2(currentIndex2);
     </script>
 </body>
 </html>
