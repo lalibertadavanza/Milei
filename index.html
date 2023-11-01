@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos generales */
+        body {
+            background-color: #ffffcc; /* Amarillo claro */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .overlay {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        /* Estilos para el visor de imágenes */
+        #image-viewer {
+            text-align: center;
+        }
+
+        #image-viewer img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #333;
+            border-radius: 8px;
+        }
+
+        #image-buttons {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #prev-button, #next-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        #prev-button:hover, #next-button:hover {
+            background-color: #555;
+        }
+
+        /* Estilos responsivos */
+        @media screen and (max-width: 768px) {
+            .overlay {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            #image-viewer img {
+                border: 1px solid #333;
+                border-radius: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin: 10px 0;">Elegí con cabeza 🦁</h1>
+    <div class="overlay">
+        <div id="image-viewer">
+            <img id="image" src="imagen1.jpg" alt="Imagen 1">
+        </div>
+
+        <div id="image-buttons">
+            <button id="prev-button">Anterior</button>
+            <button id="next-button">Siguiente</button>
+        </div>
+
+        <!-- Agrega un video de YouTube debajo de las imágenes y los botones -->
+        <iframe width="100%" height="315" src="https://www.veed.io/view/6172b314-839d-45e8-a99a-368059d80361?panel=share" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        // Array de rutas de imágenes
+        const images = [
+            "https://i.ibb.co/hVp3NqH/Whats-App-Image-2023-11-01-at-00-20-52.jpg",
+            "https://i.ibb.co/ZzTx6tt/Whats-App-Image-2023-11-01-at-00-20-51-1.jpg",
+            "https://i.ibb.co/g6MkP28/Whats-App-Image-2023-11-01-at-00-20-51.jpg"
+        ];
+
+        let currentIndex = 0;
+
+        const imageElement = document.getElementById('image');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+
+        function showImage(index) {
+            imageElement.src = images[index];
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        });
+
+        // Mostrar la primera imagen al cargar la página
+        showImage(currentIndex);
+    </script>
+</body>
+</html>
